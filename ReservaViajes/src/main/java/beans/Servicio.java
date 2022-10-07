@@ -10,9 +10,9 @@ public class Servicio {
     private Date fecha;
     private Time hora;
     private double valor;
-    private boolean puestos;
+    private int puestos;
 
-    public Servicio(String ruta, String placa, Date fecha, Time hora, double valor, boolean puestos) {
+    public Servicio(String ruta, String placa, Date fecha, Time hora, double valor, int puestos) {
         this.ruta = ruta;
         this.placa = placa;
         this.fecha = fecha;
@@ -43,7 +43,7 @@ public class Servicio {
         return valor;
     }
 
-    public boolean isPuestos() {
+    public int isPuestos() {
         return puestos;
     }
 
@@ -67,7 +67,7 @@ public class Servicio {
         this.valor = valor;
     }
 
-    public void setPuestos(boolean puestos) {
+    public void setPuestos(int puestos) {
         this.puestos = puestos;
     }
 

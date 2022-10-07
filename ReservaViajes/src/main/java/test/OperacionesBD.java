@@ -39,7 +39,7 @@ public class OperacionesBD {
                 Date fecha= rs.getDate("fecha");
                 Time hora=rs.getTime("hora");
                 double valor=rs.getDouble("valor");
-                boolean puestos=rs.getBoolean("puestos");
+                int puestos=rs.getInt("puestos");
                 Servicio servicio=new Servicio(ruta,placa,fecha,hora,valor,puestos);
                 System.out.println(servicio.toString());
             }

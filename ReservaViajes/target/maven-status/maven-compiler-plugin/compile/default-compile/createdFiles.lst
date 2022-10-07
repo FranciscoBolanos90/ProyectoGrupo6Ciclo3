@@ -1,10 +1,14 @@
 beans\Servicio.class
-beans\Usuario.class
-controller\UsuarioController.class
+servlets\ServletServicioListar.class
 beans\Compra.class
+servlets\ServletUsuarioPedir.class
 controller\IUsuarioController.class
 servlets\PruebaServlet.class
 servlets\ServletUsuarioRegister.class
+beans\Usuario.class
+controller\IViajesController.class
+controller\UsuarioController.class
+controller\ViajesController.class
 test\OperacionesBD.class
 servlets\ServletUsuarioLogin.class
 connection\DBConnection.class
