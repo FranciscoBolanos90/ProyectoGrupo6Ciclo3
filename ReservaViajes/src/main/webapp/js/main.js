@@ -69,7 +69,7 @@ function mostrarViajes(servicios) {
     $.each(servicios, function (index, servicio) {
 
         servicio = JSON.parse(servicio);
-        let precio;
+        let valor;
 
             contenido += '<tr><th scope="row">' + servicio.ruta + '</th>' +
                     '<td>' + servicio.placa + '</td>' +
@@ -78,10 +78,53 @@ function mostrarViajes(servicios) {
                     '<td>' + servicio.valor + '</td>' +
                     '<td>' + servicio.puestos + '</td>' ;
             contenido += '></td>' +
-                    '<td><button onclick="reservarViaje(' + servicio.ruta + ',' + precio + ');" class="btn btn-success" ';
+                    '<td><button onclick="reservarViaje(' + servicio.ruta + ',' + valor + ');" class="btn btn-success" ';
 
             contenido += '>Reservar</button></td></tr>'
 
     });
     $("#viajes-tbody").html(contenido);
+}
+
+function seleccionar(ruta) {
+    
+    $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletViajeSeleccionar",
+        data: $.param({
+            ruta:ruta,
+            username: username
+        }),
+        success: function (result){
+            let parsedResult = JSON.parse(result);
+            
+            if (parsedResult != false) {
+                console.log("dbckdsbc");
+            } else {
+                console.log("Error en la seleccecion");
+            }
+        }
+    });
+}
+async function restarDinero(valor) {
+    
+    await $.ajax({
+        type: "GET",
+        dataType: "html",
+        url: "./ServletUsuarioRestarDinero",
+        data: $.param({
+            username: username,
+            saldo: parseFloat(user.saldo - valor)
+        }),
+        success: function (result) {
+            let parsedResult = JSON.parse(result);
+            
+            if(parsedResult != false) {
+                console.log("Saldo actualziado");
+            } else {
+                console.log("Error en el proceso de pago");
+            }
+        }
+    });
 }
