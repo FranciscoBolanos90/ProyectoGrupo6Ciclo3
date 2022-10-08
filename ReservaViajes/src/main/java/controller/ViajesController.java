@@ -100,4 +100,26 @@ public class ViajesController implements IViajesController {
         return "false";
 
     }
+
+    @Override
+    public String seleccionar(String ruta, String username){
+        
+        String factura_venta = new String("dasdie989");
+        DBConnection con = new DBConnection();
+        
+        String sql = "Insert into compra values ('" + ruta + "' , '" + username + "', '"+factura_venta+"')";
+        
+        try {
+            Statement st = con.getConnection().createStatement();
+            st.executeUpdate(sql);
+            
+            
+        } catch (Exception ex) {
+            System.out.println(ex.toString());
+            
+        } finally{
+            con.desconectar();
+        }
+        return "false";
+    }
 }

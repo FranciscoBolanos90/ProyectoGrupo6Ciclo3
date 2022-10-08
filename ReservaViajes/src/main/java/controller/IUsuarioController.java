@@ -15,5 +15,7 @@ public interface IUsuarioController {
             double nuevoSaldo);
     
     public String eliminar(String username);
+    
+    public String restarDinero(String username, double nuevoSaldo);
    
 }

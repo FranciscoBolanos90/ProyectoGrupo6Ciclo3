@@ -7,5 +7,7 @@ public interface IViajesController {
     public String devolver(String ruta, String username);
     
     public String sumarCantidad(String ruta);
+    
+    public String seleccionar(String ruta, String username);
 
 }
